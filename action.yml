@@ -1,0 +1,25 @@
+name: "Flutter Analyze Action"
+description: "Analyzes a Flutter project and posts comments on the PR for detected issues"
+branding:
+  icon: "check-circle"
+  color: "blue"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Checkout Repository"
+      uses: actions/checkout@v2
+
+    - name: "Set up Flutter"
+      uses: subosito/flutter-action@v2
+
+    - name: "Run Flutter Analyze Script"
+      shell: bash
+      run: |
+        ./run_action.sh
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+        GITHUB_REPO: ${{ github.repository }}
+        GITHUB_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
+        GITHUB_SHA: ${{ github.sha }}
