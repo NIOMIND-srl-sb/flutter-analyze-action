@@ -19,7 +19,6 @@ runs:
         ./run_action.sh
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-        GITHUB_REPO: ${{ github.repository }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
-        GITHUB_SHA: ${{ github.sha }}
+        GITHUB_SHA: ${{ github.event.pull_request.head.sha }}

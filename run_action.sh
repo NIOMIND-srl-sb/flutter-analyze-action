@@ -2,8 +2,7 @@
 
 # Get environment variables
 TOKEN="$GITHUB_TOKEN"
-REPO_OWNER="$GITHUB_REPOSITORY_OWNER"
-REPO_NAME="$GITHUB_REPO"
+REPOSITORY="$GITHUB_REPOSITORY"
 PR_NUMBER="$GITHUB_PULL_REQUEST_NUMBER"
 COMMIT_SHA="$GITHUB_SHA"
 
@@ -32,7 +31,7 @@ for line in "${LINES[@]}"; do
         ISSUE=$(echo "$line" | awk -F '•' '{print $2}')
         COMMENT="Flutter analyze issue:\n\`\`\`\n$line\n\`\`\`"
 
-        URL="https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/pulls/$PR_NUMBER/comments"
+        URL="https://api.github.com/repos/$REPOSITORY/pulls/$PR_NUMBER/comments"
         BODY="{\"body\": \"$COMMENT\", \"commit_id\": \"$COMMIT_SHA\", \"path\": \"$FILENAME\", \"line\": $LINE_NUMBER, \"side\": \"RIGHT\"}"
 
         curl -L \
