@@ -4,6 +4,11 @@ branding:
   icon: "check-circle"
   color: "blue"
 
+inputs:
+  token:
+    description: "GitHub token"
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -18,7 +23,7 @@ runs:
       run: |
         ./run_action.sh
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ inputs.token }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
         GITHUB_SHA: ${{ github.event.pull_request.head.sha }}

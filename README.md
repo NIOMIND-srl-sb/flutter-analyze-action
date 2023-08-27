@@ -40,7 +40,7 @@ jobs:
 
       # Using your public action
       - name: Run Public Flutter Analyze Action
-        uses: NIOMIND-srl-sb/flutter-analyze-action@v1.0.1
+        uses: NIOMIND-srl-sb/flutter-analyze-action@v1.0.2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 ```
