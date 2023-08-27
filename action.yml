@@ -18,6 +18,10 @@ runs:
     - name: "Set up Flutter"
       uses: subosito/flutter-action@v2
 
+    - name: List files in current directory
+      run: ls -al
+      shell: bash
+
     - name: "Run Flutter Analyze Script"
       run: runner.sh
       shell: bash
