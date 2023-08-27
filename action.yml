@@ -21,6 +21,7 @@ runs:
     - name: "Run Flutter Analyze Script"
       shell: bash
       run: |
+        chmod +x run_action.sh
         ./run_action.sh
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
