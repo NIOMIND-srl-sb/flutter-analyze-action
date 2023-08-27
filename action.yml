@@ -19,7 +19,7 @@ runs:
       uses: subosito/flutter-action@v2
 
     - name: "Run Flutter Analyze Script"
-      run: run_action.sh
+      run: runner.sh
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
