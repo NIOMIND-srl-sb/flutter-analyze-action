@@ -18,14 +18,6 @@ runs:
     - name: "Set up Flutter"
       uses: subosito/flutter-action@v2
 
-    - name: List files in current directory
-      run: ls -al
-      shell: bash
-
-    - name: Print the path of the action
-      run: echo $GITHUB_ACTION_PATH
-      shell: bash
-
     - name: "Run Flutter Analyze Script"
       run: $GITHUB_ACTION_PATH/run_action.sh
       shell: bash

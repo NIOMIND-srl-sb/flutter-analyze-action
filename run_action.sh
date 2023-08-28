@@ -6,6 +6,24 @@ REPOSITORY="$GITHUB_REPOSITORY"
 PR_NUMBER="$GITHUB_PULL_REQUEST_NUMBER"
 COMMIT_SHA="$GITHUB_SHA"
 
+echo "GITHUB_TOKEN:"
+echo "$GITHUB_TOKEN"
+echo "GITHUB_REPOSITORY:"
+echo "$GITHUB_REPOSITORY"
+echo "GITHUB_PULL_REQUEST_NUMBER:"
+echo "$GITHUB_PULL_REQUEST_NUMBER"
+echo "GITHUB_SHA:"
+echo "$GITHUB_SHA"
+
+echo "TOKEN:"
+echo "$TOKEN"
+echo "REPOSITORY:"
+echo "$REPOSITORY"
+echo "PR_NUMBER:"
+echo "$PR_NUMBER"
+echo "COMMIT_SHA:"
+echo "$COMMIT_SHA"
+
 # Check Dart format
 echo "Checking Dart format..."
 dart format --output=none --set-exit-if-changed .
