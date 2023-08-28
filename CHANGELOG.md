@@ -4,19 +4,25 @@ All notable changes to the "Flutter Analyze GitHub Action" will be documented in
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [1.0.6] - 2023-08-30
+## [1.0.8] - 2023-08-28
+
+### Refcator
+
+- Remove comments from code.
+
+## [1.0.6] - 2023-08-27
 
 ### Fixed
 
 - Fixed a bug where for file permissions to lunch run action.
 
-## [1.0.5] - 2023-08-30
+## [1.0.5] - 2023-08-27
 
 ### Fixed
 
 - Fixed a bug where for file permissions to lunch run action.
 
-## [1.0.4] - 2023-08-30
+## [1.0.4] - 2023-08-27
 
 ### Fixed
 
@@ -28,13 +34,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Fixed a bug where for file permissions to lunch run action.
 
-## [1.0.2] - 2023-08-30
+## [1.0.2] - 2023-08-27
 
 ### Fixed
 
 - Fixed a bug where the `GITHUB_TOKEN` environment variable was not being set correctly.
 
-## [1.0.1] - 2023-08-30
+## [1.0.1] - 2023-08-27
 
 ### Fixed
 
@@ -43,7 +49,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed a bug where the `GITHUB_REPO` environment variable was not being set correctly.
 - Fixed documentation in `README.md` for example to used.
 
-## [1.0.0] - 2023-08-30
+## [1.0.0] - 2023-08-27
 
 ### Added
 

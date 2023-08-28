@@ -1,12 +1,8 @@
-#!/bin/bash
-
-# Get environment variables
 TOKEN="$GITHUB_TOKEN"
 REPOSITORY="$GITHUB_REPOSITORY"
 PR_NUMBER="$GITHUB_PULL_REQUEST_NUMBER"
 COMMIT_SHA="$GITHUB_SHA"
 
-# Check Dart format
 echo "Checking Dart format..."
 dart format --output=none --set-exit-if-changed .
 if [ $? -ne 0 ]; then
@@ -14,7 +10,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Run Flutter Analyze and save output to a file
 echo "Running Flutter Analyze..."
 flutter analyze . > analyze_output.txt
 
