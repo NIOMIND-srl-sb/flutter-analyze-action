@@ -22,8 +22,12 @@ runs:
       run: ls -al
       shell: bash
 
+    - name: Print the path of the action
+      run: echo $GITHUB_ACTION_PATH
+      shell: bash
+
     - name: "Run Flutter Analyze Script"
-      run: runner.sh
+      run: $GITHUB_ACTION_PATH/runner.sh
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
