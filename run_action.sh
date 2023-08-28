@@ -34,6 +34,11 @@ for line in "${LINES[@]}"; do
         URL="https://api.github.com/repos/$REPOSITORY/pulls/$PR_NUMBER/comments"
         BODY="{\"body\": \"$COMMENT\", \"commit_id\": \"$COMMIT_SHA\", \"path\": \"$FILENAME\", \"line\": $LINE_NUMBER, \"side\": \"RIGHT\"}"
 
+        echo "URL:"
+        echo "$URL"
+        echo "Body:"
+        echo "$BODY"
+
         curl -L \
           -X POST \
           -H "Accept: application/vnd.github+json" \

@@ -27,7 +27,7 @@ runs:
       shell: bash
 
     - name: "Run Flutter Analyze Script"
-      run: $GITHUB_ACTION_PATH/runner.sh
+      run: $GITHUB_ACTION_PATH/run_action.sh
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
