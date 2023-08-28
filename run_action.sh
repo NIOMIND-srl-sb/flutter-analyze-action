@@ -24,7 +24,7 @@ while IFS= read -r line; do
 done < <(awk 'BEGIN{RS="\\\\n"}; {print}' analyze_output.txt)
 
 for line in "${LINES[@]}"; do
-    if [[ $line == *" info"* || $line == *" warning"* || $line == *" error"* ]]; then
+    if [[ $line == *" info "* || $line == *" warning "* || $line == *" error "* ]]; then
         ISSUE_DETECTED=1
         FILENAME=$(echo "$line" | awk -F '•' '{print $3}' | awk -F ':' '{print $1}' | awk '{$1=$1;print}')
         LINE_NUMBER=$(echo "$line" | awk -F '•' '{print $3}' | awk -F ':' '{print $2}')
