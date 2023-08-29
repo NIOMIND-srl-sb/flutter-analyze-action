@@ -4,6 +4,12 @@ All notable changes to the "Flutter Analyze GitHub Action" will be documented in
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.14] - 2023-08-29
+
+### Fixed
+
+- Fixed bug where try to get commit id from input.
+
 ## [1.0.13] - 2023-08-28
 
 ### Fixed

@@ -8,6 +8,9 @@ inputs:
   token:
     description: "GitHub token"
     required: true
+  commitId:
+    description: "Commit ID"
+    required: true
 
 runs:
   using: "composite"
@@ -23,6 +26,6 @@ runs:
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
+        GITHUB_SHA: ${{ inputs.commitId }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
-        GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
