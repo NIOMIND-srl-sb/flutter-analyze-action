@@ -30,7 +30,7 @@ runs:
       run: $GITHUB_ACTION_PATH/run_action.sh
       shell: bash
       env:
-        GITHUB_TOKEN: ${{ inputs.token }}
-        GITHUB_SHA: ${{ inputs.commitId }}
-        GITHUB_REPOSITORY: ${{ github.repository }}
-        GITHUB_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
+        GITHUB_TOKEN_INPUT: ${{ inputs.token }}
+        GITHUB_SHA_INPUT: ${{ inputs.commitId }}
+        GITHUB_REPOSITORY_INPUT: ${{ github.repository }}
+        GITHUB_PULL_REQUEST_NUMBER_INPUT: ${{ github.event.pull_request.number }}

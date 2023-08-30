@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Get environment variables
-TOKEN="$GITHUB_TOKEN"
-REPOSITORY="$GITHUB_REPOSITORY"
-PR_NUMBER="$GITHUB_PULL_REQUEST_NUMBER"
+TOKEN="$GITHUB_TOKEN_INPUT"
+REPOSITORY="$GITHUB_REPOSITORY_INPUT"
+PR_NUMBER="$GITHUB_PULL_REQUEST_NUMBER_INPUT"
 
 # Check Dart format
 echo "Checking Dart format..."
@@ -30,10 +30,10 @@ for line in "${LINES[@]}"; do
         COMMENT="Flutter analyze issue:\n\`\`\`\n$line\n\`\`\`"
         if [[ $FILENAME != "" && $LINE_NUMBER != "" ]]; then
             ISSUE_DETECTED=1
-            echo "$GITHUB_SHA"
+            echo "$GITHUB_SHA_INPUT"
 
             URL="https://api.github.com/repos/$REPOSITORY/pulls/$PR_NUMBER/comments"
-            BODY="{\"body\": \"$COMMENT\", \"commit_id\": \"$GITHUB_SHA\", \"path\": \"$FILENAME\", \"line\": $LINE_NUMBER, \"side\": \"RIGHT\"}"
+            BODY="{\"body\": \"$COMMENT\", \"commit_id\": \"$GITHUB_SHA_INPUT\", \"path\": \"$FILENAME\", \"line\": $LINE_NUMBER, \"side\": \"RIGHT\"}"
 
             echo "URL:"
             echo "$URL"
