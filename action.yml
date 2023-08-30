@@ -15,6 +15,11 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: "Debug input"
+      run: |
+        echo "commitId: ${{ inputs.commitId }}"
+      shell: bash
+
     - name: "Checkout Repository"
       uses: actions/checkout@v2
 

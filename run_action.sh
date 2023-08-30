@@ -4,7 +4,6 @@
 TOKEN="$GITHUB_TOKEN"
 REPOSITORY="$GITHUB_REPOSITORY"
 PR_NUMBER="$GITHUB_PULL_REQUEST_NUMBER"
-COMMIT_SHA="$GITHUB_SHA"
 
 # Check Dart format
 echo "Checking Dart format..."
@@ -25,14 +24,16 @@ done < <(awk 'BEGIN{RS="\\\\n"}; {print}' analyze_output.txt)
 
 for line in "${LINES[@]}"; do
     if [[ $line == *" info "* || $line == *" warning "* || $line == *" error "* ]]; then
-        ISSUE_DETECTED=1
         FILENAME=$(echo "$line" | awk -F '•' '{print $3}' | awk -F ':' '{print $1}' | awk '{$1=$1;print}')
         LINE_NUMBER=$(echo "$line" | awk -F '•' '{print $3}' | awk -F ':' '{print $2}')
         ISSUE=$(echo "$line" | awk -F '•' '{print $2}')
         COMMENT="Flutter analyze issue:\n\`\`\`\n$line\n\`\`\`"
         if [[ $FILENAME != "" && $LINE_NUMBER != "" ]]; then
+            ISSUE_DETECTED=1
+            echo "$GITHUB_SHA"
+
             URL="https://api.github.com/repos/$REPOSITORY/pulls/$PR_NUMBER/comments"
-            BODY="{\"body\": \"$COMMENT\", \"commit_id\": \"$COMMIT_SHA\", \"path\": \"$FILENAME\", \"line\": $LINE_NUMBER, \"side\": \"RIGHT\"}"
+            BODY="{\"body\": \"$COMMENT\", \"commit_id\": \"$GITHUB_SHA\", \"path\": \"$FILENAME\", \"line\": $LINE_NUMBER, \"side\": \"RIGHT\"}"
 
             echo "URL:"
             echo "$URL"
