@@ -24,11 +24,15 @@ while IFS= read -r line; do
 done < <(awk 'BEGIN{RS="\\\\n"}; {print}' analyze_output.txt)
 
 for line in "${LINES[@]}"; do
-    if [[ $line == *" info "* || $line == *" warning "* || $line == *" error "* ]]; then
-        FILENAME=$(echo "$line" | awk -F '•' '{print $3}' | awk -F ':' '{print $1}' | awk '{$1=$1;print}')
-        LINE_NUMBER=$(echo "$line" | awk -F '•' '{print $3}' | awk -F ':' '{print $2}')
-        ISSUE=$(echo "$line" | awk -F '•' '{print $2}')
-        COMMENT="Flutter analyze issue:\n\`\`\`\n$line\n\`\`\`"
+    # Trim leading and trailing whitespaces
+    trimmed_line=$(echo "$line" | awk '{$1=$1; print}')
+
+    # Check if line contains info, warning or error
+    if [[ $trimmed_line == *"info"* || $trimmed_line == *"warning"* || $trimmed_line == *"error"* ]]; then
+        FILENAME=$(echo "$trimmed_line" | awk -F '•' '{print $3}' | awk -F ':' '{print $1}' | awk '{$1=$1;print}')
+        LINE_NUMBER=$(echo "$trimmed_line" | awk -F '•' '{print $3}' | awk -F ':' '{print $2}')
+        ISSUE=$(echo "$trimmed_line" | awk -F '•' '{print $2}')
+        COMMENT="Flutter analyze issue:\n\`\`\`\n$trimmed_line\n\`\`\`"
         if [[ $FILENAME != "" && $LINE_NUMBER != "" ]]; then
             ISSUE_DETECTED=1
 

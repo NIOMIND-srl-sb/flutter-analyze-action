@@ -42,7 +42,7 @@ jobs:
         uses: actions/checkout@v2.4.2
 
       - name: Run Public Flutter Analyze Action
-        uses: NIOMIND-srl-sb/flutter-analyze-action@v1.0.18
+        uses: NIOMIND-srl-sb/flutter-analyze-action@v1.0.19
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 ```

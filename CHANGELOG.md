@@ -4,6 +4,12 @@ All notable changes to the "Flutter Analyze GitHub Action" will be documented in
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.19] - 2023-08-30
+
+### Fixed
+
+- Fixed bug in script for output of flutter analyze (remove any space).
+
 ## [1.0.18] - 2023-08-30
 
 ### Fixed
