@@ -39,8 +39,7 @@ jobs:
         uses: actions/checkout@v2.4.2
 
       - name: Run Public Flutter Analyze Action
-        uses: NIOMIND-srl-sb/flutter-analyze-action@v1.0.16
+        uses: NIOMIND-srl-sb/flutter-analyze-action@v1.0.17
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commitId: ${{ github.event.pull_request.head.sha }}
 ```

@@ -8,18 +8,10 @@ inputs:
   token:
     description: "GitHub token"
     required: true
-  commitId:
-    description: "Commit ID"
-    required: true
 
 runs:
   using: "composite"
   steps:
-    - name: "Debug input"
-      run: |
-        echo "commitId: ${{ inputs.commitId }}"
-      shell: bash
-
     - name: "Checkout Repository"
       uses: actions/checkout@v2
 
@@ -31,6 +23,6 @@ runs:
       shell: bash
       env:
         GITHUB_TOKEN_INPUT: ${{ inputs.token }}
-        GITHUB_SHA_INPUT: ${{ inputs.commitId }}
         GITHUB_REPOSITORY_INPUT: ${{ github.repository }}
+        GITHUB_SHA_INPUT: ${{ github.event.pull_request.head.sha }}
         GITHUB_PULL_REQUEST_NUMBER_INPUT: ${{ github.event.pull_request.number }}
