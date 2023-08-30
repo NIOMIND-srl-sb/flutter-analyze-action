@@ -9,12 +9,15 @@ This GitHub Action runs `flutter analyze` on your Flutter project and posts comm
 - Analyzes the Flutter project for issues.
 - Posts individual comments on the Pull Request for detected issues.
 
+## Inputs Variables
+
+- GITHUB_TOKEN_INPUT: GitHub Token used for posting comments on Pull Requests.
+
 ## Environment Variables
 
-- GITHUB_TOKEN: GitHub Token used for posting comments on Pull Requests.
-- GITHUB_REPOSITORY: Owner and repository name.
-- GITHUB_PULL_REQUEST_NUMBER: Number of the pull request being analyzed.
-- GITHUB_SHA: SHA of the commit being analyzed.
+- GITHUB_REPOSITORY_ENV: Owner and repository name.
+- GITHUB_PULL_REQUEST_NUMBER_ENV: Number of the pull request being analyzed.
+- GITHUB_SHA_ENV: SHA of the commit being analyzed.
 
 ## Usage
 
@@ -39,7 +42,7 @@ jobs:
         uses: actions/checkout@v2.4.2
 
       - name: Run Public Flutter Analyze Action
-        uses: NIOMIND-srl-sb/flutter-analyze-action@v1.0.17
+        uses: NIOMIND-srl-sb/flutter-analyze-action@v1.0.18
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 ```

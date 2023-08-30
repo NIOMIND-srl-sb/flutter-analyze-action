@@ -4,6 +4,14 @@ All notable changes to the "Flutter Analyze GitHub Action" will be documented in
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.18] - 2023-08-30
+
+### Fixed
+
+- Fixed bug for input and variables name.
+- Documentation:
+  - Update `README.md` for input and envairoment variables.
+
 ## [1.0.17] - 2023-08-30
 
 ### Fixed
