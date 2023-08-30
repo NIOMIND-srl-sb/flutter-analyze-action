@@ -2,6 +2,8 @@
 
 This GitHub Action runs `flutter analyze` on your Flutter project and posts comments on the Pull Request for any detected issues.
 
+![Example](images/comment.png)
+
 ## Features
 
 - Automatically sets up Flutter.
@@ -42,7 +44,7 @@ jobs:
         uses: actions/checkout@v2.4.2
 
       - name: Run Public Flutter Analyze Action
-        uses: NIOMIND-srl-sb/flutter-analyze-action@v1.0.19
+        uses: NIOMIND-srl-sb/flutter-analyze-action@v1.0.20
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 ```
